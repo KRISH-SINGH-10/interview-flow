@@ -1,16 +1,26 @@
-# React + Vite
+# Interview Flow: AI Mock Interview Coach
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser app for practising job interviews out loud. You enter the role you want and paste your resume; an AI interviewer (Google Gemini) asks questions by voice, listens to your answers, and follows up. While you talk, your webcam tracks eye contact, and at the end you get a report you can download as a PDF.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Voice interview:** the browser's speech recognition hears your answer; Gemini writes the next question from your role, resume and the conversation so far; the browser reads it aloud.
+- **Eye contact tracking:** MediaPipe Face Mesh runs on the webcam feed and shows a live eye-contact percentage.
+- **Live signals:** a nervousness graph and a 0–100 "Hireability Index" that rises with strong answers and steady eye contact.
+- **Session report:** strong areas, eye contact and the final score, downloadable as a PDF.
 
-## React Compiler
+## Tech
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 19, Vite, Tailwind CSS, Google Gemini API, MediaPipe Face Mesh, Web Speech API, Recharts.
 
-## Expanding the ESLint configuration
+## Run it locally
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+echo "VITE_GEMINI_API_KEY=your_key_here" > .env
+npm run dev
+```
+
+Open the local URL in Chrome and allow the microphone and camera.
+
+Author: Krish Singh
